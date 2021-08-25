@@ -1,0 +1,27 @@
+<div class="login-form">
+    <mat-card class="animate__animated animate__backInDown">
+        <mat-card-content>
+            <h1 class="animate__animated animate__rubberBand animate__delay-3s animate__repeat-2">Inicie Sesión</h1>
+            <img src="../../../../assets/images/istpm.png" alt="" class="image">
+            <form [formGroup]="loginForm">
+            <mat-form-field class="full-width-input">
+                <input type="text" formControlName="username" matInput placeholder="Usuario" required>
+                <mat-error *ngIf="isValidField('username')">
+                    {{getErrorMessage('username')}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input separator">
+                <input [type]="hide ? 'password': 'text'" formControlName="password" matInput placeholder="Contraseña" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide"  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
+                </button>
+                <mat-error *ngIf="isValidField('password')">
+                    {{getErrorMessage('password')}}
+                </mat-error>
+            </mat-form-field>
+            <button [disabled]="loginForm.invalid" type="submit" (click)="isLogin()" mat-raised-button color="primary" class="separator">Continuar</button>
+            <a href="mailto:richardjimenez.9641@gmail.com" class="hover">Olvide mis credenciales</a>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,30 @@
+.barra {
+  min-width: 100%;
+  max-width: 100%; 
+  width: 100%;
+  margin-bottom: 15px;
+}
+.bordes{
+    border-radius: 5px;
+    outline: none;
+    height: 33px;
+    width: 500px;
+}
+
+@media(max-width:767px){
+  .bordes{
+    border-radius: 5px;
+    outline: none;
+    height: 33px;
+    width: 300px;
+}
+}
+
+@media(max-width:376px){
+  .bordes{
+    border-radius: 5px;
+    outline: none;
+    height: 33px;
+    width: 250px;
+}
+}

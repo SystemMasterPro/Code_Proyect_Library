@@ -1,0 +1,17 @@
+<div class="container spaceFont text-center">
+    <app-search (search)="handleSearch($event)"></app-search>
+    <div class="row">
+        <div *ngFor="let book of datos | searchFilter:filtro" class="col-lg-3 col-md-4 col-sm-6 col-12 p-2">
+            <div class="card animate__animated animate__bounceIn">
+                <img src="{{book.image}}" height="200px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <a class="stateBook">Disponible</a>
+                    <h5 class="card-title"><span class="colorPublic">Publicado: {{book.created}}</span></h5>
+                    <p class="card-text"><span class="colorSpan">Obra: </span>{{book.title}}</p>
+                    <h5 class="card-subtitle"><span class="colorSpan">Autor - </span> {{book.author}}</h5>
+                </div>
+                <button (click)="isOrder()" class="btn btn-primary m-2 colorButton">Solicitar</button>
+            </div>
+        </div>
+    </div>
+</div>

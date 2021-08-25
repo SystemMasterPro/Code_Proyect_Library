@@ -1,0 +1,103 @@
+.login-form{
+    padding: 3rem 1rem;
+    background-image: url("../../../../assets/images/b.jpg");
+    background-image: no-repeat;
+    background-image: fixed;
+    text-align: center;
+    background-image:  top;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+
+.login-form:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.75);
+}
+
+mat-card{
+    max-width: 300px;
+    margin: 5rem auto;
+    /* margin-top: 50px; */
+    text-align: center;
+    height: 350px;
+}
+
+.full-width-input{
+    width: 100%;
+}
+
+button{
+    width: 100%;
+}
+
+.separator{
+    margin-bottom: 1rem;
+}
+
+.hover{
+    font-size: 10px;
+}
+
+.hover:hover{
+    color: brown;
+    font-size: 13px;
+}
+
+.image{
+    width: 60px;
+    margin-bottom: 14px;
+}
+
+@media(max-width: 599px){
+    .login-form{
+    background-image: url("../../../../assets/images/b.jpg");
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image:  top;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.login-form:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,1);
+}
+}
+
+@media(max-width: 578px){
+    .login-form{
+    background-image: url("../../../../assets/images/b.jpg");
+    background-image: no-repeat;
+    background-image: fixed;
+    background-image:  top;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.login-form:before {
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,1);
+}
+}
+

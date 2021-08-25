@@ -1,0 +1,53 @@
+<footer *ngIf="isLogged === false" class="footer">
+
+    <div class="container text-center">
+        <!-- ENLACES SOCIALES -->
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/ISTPrimerodeMayoOficial"
+            role="button" target="_blank"><i class="bi bi-facebook"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/ITSPMayo" role="button"
+            target="_blank"><i class="bi bi-twitter"></i></a>
+
+        <!-- Pagina Principal del Instituto -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.itspm.edu.ec/portal/" role="button"
+            target="_blank"><i class="bi bi-globe"></i></a>
+
+
+        <a class="text"><span>©</span> 2021 Copyright <span>IST Primero de Mayo</span></a>
+    </div>
+</footer>
+
+<footer *ngIf="isLogged === true" class="footerTwo">
+
+    <div class="container">
+
+        <div class="row paddingRow"></div>
+
+        <div class="row text-center">
+            <h4 class="textColor">Todos los Documentos enlazados a esta pagina se distribuyen bajo Licencia.
+                Visite nuestros enlaces sociales:</h4>
+        </div>
+
+        <div class="text-center">
+            <!-- ENLACES SOCIALES -->
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1 btn-primary"
+                href="https://www.facebook.com/ISTPrimerodeMayoOficial" role="button" target="_blank"><i
+                    class="bi bi-facebook"></i></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1 btn-primary" href="https://twitter.com/ITSPMayo"
+                role="button" target="_blank"><i class="bi bi-twitter"></i></a>
+
+            <!-- Pagina Principal del Instituto -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.itspm.edu.ec/portal/" role="button"
+                target="_blank"><i class="bi bi-globe"></i></a>
+
+            <a class="text"><span>©</span> 2021 Copyright <span>IST Primero de Mayo</span></a>
+
+        </div>
+
+    </div>
+</footer>

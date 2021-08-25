@@ -1,0 +1,52 @@
+.spaceFont{
+    margin-top: 90px;
+}
+
+.colorPublic{
+    color: rgb(79, 230, 29);
+    font-size: 10px;
+}
+
+.colorButton:hover{
+    background-color: rgb(29, 145, 187);
+    border: none;
+}
+
+.colorSpan{
+    color: black;
+    text-transform: uppercase;
+    font-family:monospace;
+}
+
+.stateBook{
+    text-align: right;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    padding: 2px;
+    box-shadow: 2px 2px 2px 1px rgba(27, 214, 17, 0.598);
+}
+
+.card{
+    background-color: rgba(128, 128, 128, 0.7);
+}
+
+.card-text{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+.card-subtitle{
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+.card-title{
+    margin-top: 2px;
+}

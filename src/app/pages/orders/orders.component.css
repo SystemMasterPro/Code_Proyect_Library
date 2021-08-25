@@ -1,0 +1,45 @@
+.spaceFont{
+    margin-top: 90px;
+}
+
+.roundeImage{
+    padding: 2rem;
+}
+
+.heightCard{
+    margin-bottom: 10px;
+}
+
+.marginTitle{
+    margin-top: 10px;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.colorTextInfo{
+    color: black;
+    font-weight: bolder;
+}
+
+.borderTarget{
+    margin-right: 10px;
+    box-shadow: 1px 2px 1px 1px rgb(15, 14, 14);
+}
+
+.borderTarget h5 span{
+    color: rgba(96, 99, 99, 0.932);
+}
+
+.listTextTitle{
+    color: white;
+}
+
+.withContainer{
+    width: 300px;
+}
+
+.contentText p{
+    color: white;
+    text-align: justify;
+}

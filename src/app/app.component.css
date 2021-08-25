@@ -1,0 +1,29 @@
+mat-sidenav{
+    width: 200px;
+}
+
+mat-sidenav-content{
+margin: 0;
+padding: 0;
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+mat-sidenav-container{
+    height: 100%;
+}
+
+/* .online{
+    height: 3px;
+    background-color: rgb(88, 240, 101);
+    border-radius: 40px;
+    bottom: 0;
+    position: relative;
+}
+.ofline{
+    height: 3px;
+    background-color: rgb(218, 62, 62);
+    border-radius: 10px;
+} */
