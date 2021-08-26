@@ -5,12 +5,10 @@ import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { UserResponse, User } from '../shared/models/user.interface';
 import { Order } from '../shared/models/order';
-// import { JwtHelperService } from "@auth0/angular-jwt";
 import { catchError, map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import Swal from 'sweetalert2'
 
-// const helper = new JwtHelperService();
 
 @Injectable({providedIn: 'root'})
 export class ApiService {
@@ -20,10 +18,7 @@ export class ApiService {
     token = localStorage.getItem('token');
     headers = new HttpHeaders({'Content-Type':'application/json', 'Authorization': 'Token '+this.token});
 
-
-
-constructor(private http : HttpClient, private router : Router, private cookieService:CookieService) {}
-
+    constructor(private http : HttpClient, private router : Router, private cookieService:CookieService) {}
 
     // OBSERVABLE PARA INDICAR SESIONES
     get isLogged(): Observable < boolean > {
@@ -48,22 +43,10 @@ constructor(private http : HttpClient, private router : Router, private cookieSe
 
     // RETORNA LOS LIBROS DISPONIBLES
     getBooks() {
-        // this.updateToken().subscribe((res) => {
-        //     if (res) {
-        //         this.saveToken(res.token, res.user);
-        //         this.cookieService.set('token_access', res.token , 1, '/');
-        //     }
-        // })
         return this.http.get<any>(`${environment.API_URL}/api/books/`, {headers: this.headers});
     }
     // RETORNA UN LIBRO EN ESPECIFICO
     findById(id: number): Observable<any> {
-        // this.updateToken().subscribe((res) => {
-        //     if (res) {
-        //         this.saveToken(res.token, res.user);
-        //         this.cookieService.set('token_access', res.token, 1, '/');
-        //     }
-        // })
         return this.http.get<any>(`${environment.API_URL}/api/books/${id}`, { headers: this.headers });
     }
 
@@ -75,37 +58,29 @@ constructor(private http : HttpClient, private router : Router, private cookieSe
 
     // ELIMINAMOS EL TOKEN
     deleteToken() {
+this.cookieService.delete('token_access');
+
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.cookieService.delete('token_access');
         this.loggedIn.next(false);
         this.router.navigate(['login']);
     }
 
     // ACTUALIZAMOS EL TOKEN
     updateToken() {
-        return this.http.get<any>(`${environment.API_URL}/refresh-token/`, {headers: this.headers});
+        this.http.get<any>(`${environment.API_URL}/refresh-token/`, { headers: this.headers }).subscribe((res) => {
+            this.saveToken(res.token, res.user);
+            this.cookieService.set('token_access', res.token, 1, '/');
+        })
     }
 
     //  PEDIDOS DEL USUARIO
     getOrderUser() {
-        // this.updateToken().subscribe((res) => {
-        //     if (res) {
-        //         this.saveToken(res.token, res.user);
-        //         this.cookieService.set('token_access', res.token, 1, '/');
-        //     }
-        // })
         return this.http.get<any>(`${environment.API_URL}/api/orders/`, { headers: this.headers });
     }
 
     //  CREAR PEDIDO DE USUARIO
     postOrderUser(order: Order): Observable<Order> {
-        // this.updateToken().subscribe((res) => {
-        //     if (res) {
-        //         this.saveToken(res.token, res.user);
-        //         this.cookieService.set('token_access', res.token, 1, '/');
-        //     }
-        // })
         return this.http.post<Order>(`${environment.API_URL}/api/orders/`, order, { headers: this.headers });
     }
 

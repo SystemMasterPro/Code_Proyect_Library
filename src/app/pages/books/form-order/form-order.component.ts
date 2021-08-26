@@ -37,10 +37,26 @@ export class FormOrderComponent implements OnInit {
       book: this.order.id,
       deliver_date: this.deliver_date
     }
-    this.service.postOrderUser(orderNew).subscribe((data) => {
-      Swal.fire({ position: 'top-end', icon: 'success', title: 'Solicitud enviada con exito!', showConfirmButton: false, timer: 1000 });
-      this.route.navigate(['/book']);
-    })
+    if (orderNew.deliver_date != '') {
+      this.service.postOrderUser(orderNew).subscribe((data) => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Solicitud enviada con exito!',
+          showConfirmButton: false,
+          timer: 1000
+        });
+        this.route.navigate(['/book']);
+      })
+    } else {
+      Swal.fire({
+        position: 'center',
+        icon: 'warning',
+        title: 'Debe colocar la fecha que estima sea necesaria para la devolucion del libro',
+        showConfirmButton: true,
+        confirmButtonColor : '#d33'
+      });
+    }
   }
 
   cancelOrder() {

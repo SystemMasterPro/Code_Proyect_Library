@@ -27,18 +27,12 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(): void{
-    this.authService.updateToken().subscribe((r) => {
-      if (r) {
-        this.authService.saveToken(r.token, r.user)
-        this.cookieService.set('token_access', r.token, 1, '/');
-        let token = localStorage.getItem('token')
-        this.authService.logout(token + '').subscribe((res) => {
-          if (res) {
-            this.authService.deleteToken();
-            this.isLogged = this.cookieService.check('token_access');
-          }
-        })
+    let token = localStorage.getItem('token')
+    this.authService.logout(token + '').subscribe((res) => {
+      if (res) {
+        this.authService.deleteToken();
+        this.isLogged = this.cookieService.check('token_access');
       }
-    })
+    });
   }
 }
