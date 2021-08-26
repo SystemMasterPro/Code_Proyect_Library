@@ -11,7 +11,7 @@
                     <h4 class="marginTitle">“Un lector vive mil vidas antes de morir. Aquel que nunca lee vive solo una.”</h4>
                     <div class="borderTarget">
                         <h5 class="colorTextInfo">Cedula: <span>{{user.username}}</span></h5>
-                        <h5 class="colorTextInfo">Estudiante: <span>{{user.names}}{{user.surnames}}</span></h5>
+                        <h5 class="colorTextInfo">Estudiante: <span>{{user.names}} {{user.surnames}}</span></h5>
                         <h5 class="colorTextInfo">Tecnologia: <span>{{user.tecnology}}</span></h5>
                         <h5 class="colorTextInfo">Ciclo: <span>{{user.cycle}}</span></h5>
                         <h5 class="colorTextInfo">Correo Electronico: <span>{{user.email}}</span></h5>
@@ -21,13 +21,13 @@
         </div>
     </div>
 
-    <div class="row text-center mt-5">
+    <div class="row text-center mt-5 mb-3">
         <div class="col-12">
             <h4 class="listTextTitle">LISTA DE PEDIDOS REALIZADOS</h4>
         </div>
     </div>
 
-<table class="table table-dark table-striped">
+<table class="table table-dark table-striped mb-5">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -37,15 +37,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tr *ngFor="let o of orders">
+            <th scope="row">{{o.id}}</th>
+            <td>{{o.book}}</td>
+            <td>{{o.user}}</td>
+            <td>{{o.state}}</td>
         </tr>
     </tbody>
 </table>
-
+<hr>
 <div class="row p-4">
     <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
         <div class="row">

@@ -5,6 +5,7 @@ import { BooksRoutingModule } from './books-routing.module';
 import { SearchFilterPipe } from '../../Pipes/search-filter.pipe';
 import { BooksComponent } from './books.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormOrderComponent } from './form-order/form-order.component';
 
 
 
@@ -12,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     BooksComponent,
     SearchComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    FormOrderComponent
   ],
   imports: [
     CommonModule,

@@ -27,6 +27,15 @@
     box-shadow: 2px 2px 2px 1px rgba(27, 214, 17, 0.598);
 }
 
+.stateBookTwo{
+    text-align: right;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    padding: 2px;
+    box-shadow: 2px 2px 2px 1px rgba(214, 17, 17, 0.836);
+}
+
 .card{
     background-color: rgba(128, 128, 128, 0.7);
 }

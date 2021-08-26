@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChackLoginGuard, ChackLogoutGuard } from './shared/guards/chack-login.guard';
+import { FormOrderComponent } from './pages/books/form-order/form-order.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,13 @@ const routes: Routes = [
   {
     path: 'order', loadChildren: () =>
       import('./pages/orders/orders.module').then(m => m.OrdersModule),
-    canActivate: [ChackLoginGuard],  },
+    canActivate: [ChackLoginGuard],
+  },
+  {
+    path: 'new-order/:id',
+    component: FormOrderComponent,
+    canActivate: [ChackLoginGuard],
+  },
   {
     path: '**',
     loadChildren: () =>

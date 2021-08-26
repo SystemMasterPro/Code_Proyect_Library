@@ -12,7 +12,7 @@ export class OrdersComponent implements OnInit {
   linkimagen = '';
   orders: any;
 
-constructor(private authService: ApiService) {}
+  constructor(private authService: ApiService) { }
 
 
   ngOnInit(): void {
@@ -22,10 +22,11 @@ constructor(private authService: ApiService) {}
   }
 
   getOrders() {
+    const id = this.user.id;
     this.authService.getOrderUser().subscribe((res) => {
-      console.log(res);
-      this.orders = this.orders;
-      console.log(this.orders);
-    })
+      this.orders = res.filter(function (r: any) {
+        return r.user === id;
+      });
+    });
   }
 }

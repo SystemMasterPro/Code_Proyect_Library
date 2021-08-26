@@ -15,7 +15,6 @@ import {
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
 import { CookieService } from 'ngx-cookie-service';
-import {ConnectionServiceModule} from 'ngx-connection-service';
 
 
 
@@ -31,7 +30,6 @@ import {ConnectionServiceModule} from 'ngx-connection-service';
     MaterialModule,
     SidebarModule,
     FontAwesomeModule,
-    ConnectionServiceModule
   ],
   providers: [ApiService, CookieService],
   bootstrap: [AppComponent],

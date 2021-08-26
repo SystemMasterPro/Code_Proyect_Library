@@ -33,6 +33,8 @@
 
 .listTextTitle{
     color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 .withContainer{
@@ -42,4 +44,7 @@
 .contentText p{
     color: white;
     text-align: justify;
+}
+.nullOrders{
+    font-size: 20px;
 }
