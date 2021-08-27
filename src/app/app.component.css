@@ -14,16 +14,3 @@ background: linear-gradient(to top, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ 
 mat-sidenav-container{
     height: 100%;
 }
-
-/* .online{
-    height: 3px;
-    background-color: rgb(88, 240, 101);
-    border-radius: 40px;
-    bottom: 0;
-    position: relative;
-}
-.ofline{
-    height: 3px;
-    background-color: rgb(218, 62, 62);
-    border-radius: 10px;
-} */

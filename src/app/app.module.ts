@@ -15,6 +15,8 @@ import {
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
 import { CookieService } from 'ngx-cookie-service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -30,6 +32,12 @@ import { CookieService } from 'ngx-cookie-service';
     MaterialModule,
     SidebarModule,
     FontAwesomeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [ApiService, CookieService],
   bootstrap: [AppComponent],

@@ -53,8 +53,16 @@ a{
 
 
 @media(max-width:991px){
-    .navbar-nav.navbar-center {
+.navbar-nav.navbar-center {
     position: relative;
+}
+.centerText{
+    height: auto;
+}
+
+.buttonPersonalizate{
+    width: 100%;
+    color: rgb(17, 144, 10);
 }
 
 }
