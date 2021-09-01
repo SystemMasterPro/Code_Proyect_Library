@@ -58,8 +58,7 @@ export class ApiService {
 
     // ELIMINAMOS EL TOKEN
     deleteToken() {
-this.cookieService.delete('token_access');
-
+        this.cookieService.delete('token_access');
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.loggedIn.next(false);
@@ -101,4 +100,10 @@ this.cookieService.delete('token_access');
         }
         return throwError(errorMessage);
     }
+    // ENVIAR NOTIFICACIONES DESDE SERVIDOR NODEJS
+    saveTokenNotifications = (token: Object) => {
+        return this.http.post(`${environment.API_URL_NOTIFICATION}/save`, {
+            token
+        });
+    };
 }

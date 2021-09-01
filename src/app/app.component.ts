@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SwPush } from '@angular/service-worker';
 import { ApiService } from './services/api.service';
-import {CookieService} from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,27 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class AppComponent implements OnInit {
 
-constructor(private service : ApiService, private cookieService : CookieService) {}
+public readonly VAPID_PUBLIC_KEY = 'BNzcADrO7IM3qxmlLlp-P8JpWloBEzy58_lQ-sS-kh0MmTePhV0i3ofWBK5MxIHh9VzTcms1WpPRCPRgrJETM8g'
+
+
+constructor(private service : ApiService, private swPush: SwPush) {}
 
   ngOnInit(): void {
-    // if (this.cookieService.check('token_access') === true) {
-    //   setInterval(this.service.deleteToken, 60000);
-    //   console.log("realizado");
-    // }
+    
   }
+
+subscribetoNotifications():any {
+  this.swPush.requestSubscription({
+    serverPublicKey: this.VAPID_PUBLIC_KEY
+  }).then(sub => {
+    const token = JSON.parse(JSON.stringify(sub));
+    this.service.saveTokenNotifications(token).subscribe((res: Object) => {
+      console.log(res);
+    }, (err) => {
+      console.log(err);
+    })
+  }).catch(err => console.log(err))
+
+}
+
 }

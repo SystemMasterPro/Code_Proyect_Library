@@ -57,11 +57,11 @@ a{
     position: relative;
 }
 .centerText{
+    justify-content: right;
     height: auto;
 }
 
 .buttonPersonalizate{
-    width: 100%;
     color: rgb(17, 144, 10);
 }
 
