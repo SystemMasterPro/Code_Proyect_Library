@@ -10,10 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './material.module';
-import { SidebarModule } from './shared/components/sidebar/sidebar.module';
-import {
-  FontAwesomeModule
-} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CookieService } from 'ngx-cookie-service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -30,7 +27,6 @@ import { environment } from '../environments/environment';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SidebarModule,
     FontAwesomeModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

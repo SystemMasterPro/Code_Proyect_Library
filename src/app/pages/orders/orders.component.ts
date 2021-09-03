@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-orders',
@@ -11,14 +12,16 @@ export class OrdersComponent implements OnInit {
   user: any;
   linkimagen = '';
   orders: any;
+  books: any;
 
-  constructor(private authService: ApiService) { }
-
+  constructor(private authService: ApiService) {
+    this.authService.updateToken();
+  }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user') + '');
-    this.linkimagen = `http://localhost:8000${this.user.image}`;
-    this.getOrders()
+    this.linkimagen = `${environment.API_URL}${this.user.image}`;
+    this.getOrders();
   }
 
   getOrders() {

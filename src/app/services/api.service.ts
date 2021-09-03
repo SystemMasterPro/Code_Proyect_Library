@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { UserResponse, User } from '../shared/models/user.interface';
-import { Order } from '../shared/models/order';
-import { catchError, map } from 'rxjs/operators';
-import { CookieService } from 'ngx-cookie-service';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
+import {UserResponse, User} from '../shared/models/user.interface';
+import { Order, Book } from '../shared/models/order';
+import {catchError, map} from 'rxjs/operators';
+import {CookieService} from 'ngx-cookie-service';
 import Swal from 'sweetalert2'
 
 
@@ -16,9 +16,12 @@ export class ApiService {
     private loggedIn = new BehaviorSubject<boolean>(false);
 
     token = localStorage.getItem('token');
-    headers = new HttpHeaders({'Content-Type':'application/json', 'Authorization': 'Token '+this.token});
+    headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + this.token
+    });
 
-    constructor(private http : HttpClient, private router : Router, private cookieService:CookieService) {}
+    constructor(private http : HttpClient, private router : Router, private cookieService : CookieService) {}
 
     // OBSERVABLE PARA INDICAR SESIONES
     get isLogged(): Observable < boolean > {
@@ -27,31 +30,41 @@ export class ApiService {
 
     // LOGIN
     login(authData : User): Observable < UserResponse | void > {
-        return this.http.post<UserResponse>(`${environment.API_URL}/login/`, authData).pipe(map((res : UserResponse) => {
+        return this.http.post<UserResponse>(`${
+            environment.API_URL
+        }/login/`, authData).pipe(map((res : UserResponse) => {
             this.loggedIn.next(true);
             return res;
         }), catchError(res => res = this.handlerError(res)))
     }
 
     // LOGOUT
-    logout(token: string) {
-        return this.http.post<any>(`${environment.API_URL}/logout_api/?token=${token}`, token).pipe(
-            map((res: any) => {
-                return res;
-            }));
+    logout(token : string) {
+        return this.http.post<any>(`${
+            environment.API_URL
+        }/logout_api/?token=${token}`, token).pipe(map((res : any) => {
+            return res;
+        }));
     }
 
     // RETORNA LOS LIBROS DISPONIBLES
     getBooks() {
-        return this.http.get<any>(`${environment.API_URL}/api/books/`, {headers: this.headers});
+        return this.http.get<any>(`${
+            environment.API_URL
+        }/api/books/`, {headers: this.headers});
     }
     // RETORNA UN LIBRO EN ESPECIFICO
-    findById(id: number): Observable<any> {
-        return this.http.get<any>(`${environment.API_URL}/api/books/${id}`, { headers: this.headers });
+    findById(id : number): Observable < any > {
+        return this.http.get<any>(`${environment.API_URL}/api/books/${id}/`, {headers: this.headers});
+    }
+
+    // ACTUALIZAR ESTADO DE UN LIBRO
+    putBook(id:any,data:Book): Observable<any> {
+        return this.http.put<any>(`${environment.API_URL}/api/books/${id}/`, data, { headers: this.headers });
     }
 
     // GUARDAMOS EL TOKEN EN EL LOCALSTORAGE
-    saveToken(token : string, user : any):void {
+    saveToken(token : string, user : any): void {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
     }
@@ -67,20 +80,26 @@ export class ApiService {
 
     // ACTUALIZAMOS EL TOKEN
     updateToken() {
-        this.http.get<any>(`${environment.API_URL}/refresh-token/`, { headers: this.headers }).subscribe((res) => {
+        this.http.get<any>(`${
+            environment.API_URL
+        }/refresh-token/`, {headers: this.headers}).subscribe((res) => {
             this.saveToken(res.token, res.user);
             this.cookieService.set('token_access', res.token, 1, '/');
         })
     }
 
-    //  PEDIDOS DEL USUARIO
+    // PEDIDOS DEL USUARIO
     getOrderUser() {
-        return this.http.get<any>(`${environment.API_URL}/api/orders/`, { headers: this.headers });
+        return this.http.get<any>(`${
+            environment.API_URL
+        }/api/orders/`, {headers: this.headers});
     }
 
-    //  CREAR PEDIDO DE USUARIO
-    postOrderUser(order: Order): Observable<Order> {
-        return this.http.post<Order>(`${environment.API_URL}/api/orders/`, order, { headers: this.headers });
+    // CREAR PEDIDO DE USUARIO
+    postOrderUser(order : Order): Observable < Order > {
+        return this.http.post<Order>(`${
+            environment.API_URL
+        }/api/orders/`, order, {headers: this.headers});
     }
 
     // MANEJO DE ERRORES
@@ -90,20 +109,36 @@ export class ApiService {
             errorMessage = `Error: code ${
                 err.message
             }`;
-            Swal.fire({
-                title: 'Acceso Denegado',
-                text: "Credenciales de acceso incorrectas",
-                icon: 'error',
-                confirmButtonColor: '#d33',
-                confirmButtonText: 'Entendido'
-            })
+            if (err.status === 409) {
+                Swal.fire({
+                    title: 'Acceso Denegado',
+                    text: 'YA SE HA INICIADO SESION EN OTRO DISPOSITIVO',
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Entendido'
+                })
+            } else if (err.status === 401) {
+                Swal.fire({
+                    title: 'No Autorizado',
+                    text: 'SU CUENTA ESTA SUSPENDIDA',
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Entendido'
+                })
+            } else if (err.status === 400) {
+                Swal.fire({
+                    title : 'Acceso Denegado',
+                    text: 'Usuario o Contraseña Incorrectos!',
+                    icon: 'error',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Entendido'
+                })
+            }
         }
         return throwError(errorMessage);
     }
     // ENVIAR NOTIFICACIONES DESDE SERVIDOR NODEJS
-    saveTokenNotifications = (token: Object) => {
-        return this.http.post(`${environment.API_URL_NOTIFICATION}/save`, {
-            token
-        });
+    saveTokenNotifications = (token : Object) => {
+        return this.http.post(`${environment.API_URL_NOTIFICATION}/save`, {token});
     };
 }

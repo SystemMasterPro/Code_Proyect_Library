@@ -19,6 +19,7 @@ export class FormOrderComponent implements OnInit {
   constructor(private service: ApiService, private activeRouter: ActivatedRoute, private route: Router) {
     this.user = JSON.parse(localStorage.getItem('user') + '');
     this.order = new Book();
+    this.service.updateToken();
   }
 
   ngOnInit(): void {
@@ -37,16 +38,28 @@ export class FormOrderComponent implements OnInit {
       book: this.order.id,
       deliver_date: this.deliver_date
     }
+    
+    const idBook = this.order.id
+
+    const bookOrder = {
+      title: this.order.title,
+      author: this.order.author,
+      state: false,
+      category: this.order.category
+    }
     if (orderNew.deliver_date != '') {
       this.service.postOrderUser(orderNew).subscribe((data) => {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Solicitud enviada con exito!',
-          showConfirmButton: false,
-          timer: 1000
-        });
-        this.route.navigate(['/book']);
+        this.service.putBook(idBook, bookOrder).subscribe(res => {
+          console.log(res);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Solicitud enviada con exito!',
+            showConfirmButton: false,
+            timer: 1000
+          });
+          this.route.navigate(['/book']);
+        })
       })
     } else {
       Swal.fire({

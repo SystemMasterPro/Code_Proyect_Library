@@ -10,7 +10,9 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
     this.search.valueChanges

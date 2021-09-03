@@ -12,14 +12,16 @@ export class BooksComponent implements OnInit {
   
   filtro = '';
   
-constructor(private authService:ApiService) { }
+  constructor(private authService: ApiService) {
+    this.authService.updateToken();
+  }
 
 
   ngOnInit(): void {
     // METODO BUSCAR LIBRO
     this.authService.getBooks().subscribe((data) => {
       this.datos = data;
-    })
+    });
   }
 
   handleSearch(value: string) {

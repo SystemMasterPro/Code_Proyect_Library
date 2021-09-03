@@ -15,7 +15,7 @@
                         <h5 class="colorTextInfo">Tecnologia: <span>{{user.tecnology}}</span></h5>
                         <h5 class="colorTextInfo">Ciclo: <span>{{user.cycle}}</span></h5>
                         <h5 class="colorTextInfo">Correo Electronico: <span>{{user.email}}</span></h5>
-                        <h5 class="colorTextInfo">Telefono: <span>{{user.phone}}</span></h5>
+                        <h5 class="colorTextInfo">Telefono: <span>0{{user.phone}}</span></h5>
                     </div>
             </div>
         </div>
@@ -30,18 +30,21 @@
 <table class="table table-dark table-striped mb-5">
     <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Libro</th>
-            <th scope="col">Autor</th>
+            <th scope="col">N. Solicitud</th>
+            <th scope="col">Solicitante</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Fecha de Entrega</th>
             <th scope="col">Estado</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let o of orders">
             <th scope="row">{{o.id}}</th>
-            <td>{{o.book}}</td>
-            <td>{{o.user}}</td>
-            <td>{{o.state}}</td>
+            <td>{{user.names}} {{user.surnames}}</td>
+            <td>{{user.username}}</td>
+            <td>{{o.deliver_date | date: 'medium'}}</td>
+            <td *ngIf='o.state === true'><span class="badge rounded-pill bg-success sizeText">en proceso</span></td>
+            <td *ngIf='o.state === false'><span class="badge rounded-pill bg-danger sizeText">finalizado</span></td>
         </tr>
     </tbody>
 </table>

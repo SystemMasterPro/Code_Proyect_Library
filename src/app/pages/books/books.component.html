@@ -5,14 +5,16 @@
             <div class="card animate__animated animate__bounceIn">
                 <img src="{{book.image}}" height="200px" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a *ngIf="book.state == true" class="stateBook">Disponible</a>
-                    <a *ngIf="book.state == false" class="stateBookTwo"> No Disponible</a>
+                    <a *ngIf="book.state == true" class="stateBook badge bg-success">Disponible</a>
+                    <a *ngIf="book.state == false" class="stateBookTwo badge bg-danger"> No Disponible</a>
                     <h5 class="card-title"><span class="colorPublic">Publicado: {{book.created}}</span></h5>
-                    <p class="card-text"><span class="colorSpan">Obra: </span>{{book.title}}</p>
-                    <h5 class="card-subtitle"><span class="colorSpan">Autor - </span> {{book.author}}</h5>
+                    <div class="row left">
+                        <p class="card-text"><span class="colorSpan badge bg-info text-dark">Obra: </span> {{book.title}}</p>
+                        <h5 class="card-subtitle"><span class="colorSpan badge bg-dark text-white">Autor: </span> {{book.author}}</h5>
+                    </div>
                 </div>
                 <button *ngIf="book.state == true" [routerLink]="['/new-order/',book.id]" class="btn btn-primary m-2 colorButton">Solicitar</button>
-                <button *ngIf="book.state == false" class="btn btn-danger disabled m-2">Prestado</button>
+                <button *ngIf="book.state == false" class="btn btn-danger disabled m-2">Solicitado</button>
             </div>
         </div>
     </div>

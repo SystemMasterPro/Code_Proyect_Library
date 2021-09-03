@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit {
 
   isLogged:any;
 
-  constructor(private authService:ApiService, private cookieService:CookieService) { }
+  constructor(private authService: ApiService, private cookieService: CookieService) {
+  }
 
   ngOnInit(): void {
 
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
   onLogout(): void{
     let token = localStorage.getItem('token')
+    this.authService.updateToken();
     this.authService.logout(token + '').subscribe((res) => {
       if (res) {
         this.authService.deleteToken();

@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
 public readonly VAPID_PUBLIC_KEY = 'BNzcADrO7IM3qxmlLlp-P8JpWloBEzy58_lQ-sS-kh0MmTePhV0i3ofWBK5MxIHh9VzTcms1WpPRCPRgrJETM8g'
 
 
-constructor(private service : ApiService, private swPush: SwPush) {}
+  constructor(private service: ApiService, private swPush: SwPush) {
+  }
 
   ngOnInit(): void {
     

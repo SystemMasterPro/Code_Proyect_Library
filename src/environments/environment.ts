@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   API_URL: 'http://localhost:8000',
-  API_URL_NOTIFICATION: ''
+  API_URL_NOTIFICATION : 'https://notificationsrapids.herokuapp.com'
 };
