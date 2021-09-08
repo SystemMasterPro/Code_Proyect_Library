@@ -6,6 +6,7 @@ import { SearchFilterPipe } from '../../Pipes/search-filter.pipe';
 import { BooksComponent } from './books.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormOrderComponent } from './form-order/form-order.component';
+import { SpinnerModule } from '../../shared/components/spinner/spinner.module';
 
 
 
@@ -20,7 +21,8 @@ import { FormOrderComponent } from './form-order/form-order.component';
     CommonModule,
     BooksRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SpinnerModule
   ]
 })
 export class BooksModule { }

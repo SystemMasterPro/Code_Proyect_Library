@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Book } from 'src/app/shared/models/order';
+import { OnExit } from 'src/app/shared/guards/exit-form.guard';
 import Swal from 'sweetalert2';
 
 
@@ -50,7 +51,6 @@ export class FormOrderComponent implements OnInit {
     if (orderNew.deliver_date != '') {
       this.service.postOrderUser(orderNew).subscribe((data) => {
         this.service.putBook(idBook, bookOrder).subscribe(res => {
-          console.log(res);
           Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -74,6 +74,14 @@ export class FormOrderComponent implements OnInit {
 
   cancelOrder() {
     this.route.navigate(['/book'])
+  }
+
+  onExit() {
+    if (this.deliver_date === '') {
+      const rta = confirm('Esta seguro de salir, el formulario no se ha enviado');
+      return rta;
+    }
+    return true;
   }
 
 }

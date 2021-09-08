@@ -4,6 +4,8 @@ import {FormBuilder, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2'
+
 
 @Component({ selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.css'] })
     
@@ -34,7 +36,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     ngOnInit(): void {}
 
     isLogin() {
-        
         const formValue = this.loginForm.value;
         this.subscription.add(this.authService.login(formValue).subscribe(res => {
             if (res) {
