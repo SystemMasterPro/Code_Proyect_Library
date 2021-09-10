@@ -18,12 +18,6 @@ const routes: Routes = [
     canActivate: [ChackLoginGuard],
   },
   {
-    path: 'admin',
-    loadChildren: () =>
-      import('./pages/admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [ChackLoginGuard],
-  },
-  {
     path: 'login',
     loadChildren: () =>
       import('./pages/auth/login/login.module').then((m) => m.LoginModule),

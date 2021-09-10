@@ -39,13 +39,11 @@ export class ApiService {
     }
 
     // LOGOUT
-    logout(token : string) {
-        return this.http.post<any>(`${
-            environment.API_URL
-        }/logout_api/?token=${token}`, token).pipe(map((res : any) => {
-            return res;
-        }));
-    }
+    // logout(token : string) {
+    //     return this.http.post<any>(`${environment.API_URL}/logout_api/?token=${token}`, token).pipe(map((res : any) => {
+    //         return res;
+    //     }));
+    // }
 
     // RETORNA LOS LIBROS DISPONIBLES
     getBooks() {

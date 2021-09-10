@@ -15,7 +15,6 @@ export class OrdersComponent implements OnInit {
   books: any;
 
   constructor(private authService: ApiService) {
-    this.authService.updateToken();
   }
 
   ngOnInit(): void {

@@ -20,7 +20,6 @@ export class FormOrderComponent implements OnInit {
   constructor(private service: ApiService, private activeRouter: ActivatedRoute, private route: Router) {
     this.user = JSON.parse(localStorage.getItem('user') + '');
     this.order = new Book();
-    this.service.updateToken();
   }
 
   ngOnInit(): void {

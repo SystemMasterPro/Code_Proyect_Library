@@ -13,7 +13,6 @@ export class BooksComponent implements OnInit {
   filtro = '';
   
   constructor(private authService: ApiService) {
-    this.authService.updateToken();
   }
 
 
