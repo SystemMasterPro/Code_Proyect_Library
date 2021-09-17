@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         password: [
             '',
             [
-                Validators.required, Validators.minLength(10)
+                Validators.required, Validators.minLength(4)
             ]
         ]
     });

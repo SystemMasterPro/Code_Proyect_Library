@@ -1,0 +1,3 @@
+$('#xxx').datepicker({
+    startDate: "hoy"
+});

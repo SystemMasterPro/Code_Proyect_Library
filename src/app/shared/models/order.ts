@@ -10,6 +10,8 @@ export class Book {
     title?: string;
     author?: string;
     state?: boolean;
+    stock?: number;
+    borrowed?: number;
     image?: string;
     category?: number;
 }

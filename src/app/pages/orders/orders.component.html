@@ -30,7 +30,9 @@
 <table class="table table-dark table-striped mb-5">
     <thead>
         <tr>
+            <th scope="col">Pedido</th>
             <th scope="col">N. Solicitud</th>
+            <th scope="col">Libro</th>
             <th scope="col">Solicitante</th>
             <th scope="col">Cedula</th>
             <th scope="col">Fecha de Entrega</th>
@@ -38,8 +40,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let o of orders">
-            <th scope="row">{{o.id}}</th>
+        <tr *ngFor="let o of orders; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{o.id}}</td>
+            <td>{{o.book}}</td>
             <td>{{user.names}} {{user.surnames}}</td>
             <td>{{user.username}}</td>
             <td>{{o.deliver_date | date: 'medium'}}</td>
