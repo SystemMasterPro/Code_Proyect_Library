@@ -8,8 +8,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
-const myModules = [MatToolbarModule,MatSidenavModule,MatButtonModule,MatMenuModule,MatListModule,MatIconModule,MatInputModule,MatCardModule,MatFormFieldModule];
+
+const myModules = [MatToolbarModule,MatSidenavModule,MatButtonModule,MatMenuModule,MatListModule,MatIconModule,MatInputModule,MatCardModule,MatFormFieldModule,MatDatepickerModule,MatNativeDateModule];
 
 @NgModule({
     imports: [...myModules],

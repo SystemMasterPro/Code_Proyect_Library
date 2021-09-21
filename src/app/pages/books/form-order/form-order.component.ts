@@ -1,18 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ApiService} from 'src/app/services/api.service';
+import { ApiService } from 'src/app/services/api.service';
 import {Book} from 'src/app/shared/models/order';
 import Swal from 'sweetalert2';
 
 
-@Component({selector: 'app-form-order', templateUrl: './form-order.component.html', styleUrls: ['./form-order.component.css']})
+@Component({ selector: 'app-form-order', templateUrl: './form-order.component.html', styleUrls: ['./form-order.component.css']})
+
 export class FormOrderComponent implements OnInit {
 
-  order : Book;
-  user: any
-  deliver_date: string = ''
-  prestados: any
-  stock: any
+minDate = new Date(2021, 8, 21);
+maxDate = new Date(2021, 9, 21);
+
+order : Book;
+user: any
+deliver_date: string = ''
+prestados: any
+stock: any
 
   constructor(private service: ApiService, private activeRouter: ActivatedRoute, private route: Router) {
         this.user = JSON.parse(localStorage.getItem('user') + '');
@@ -40,6 +44,8 @@ export class FormOrderComponent implements OnInit {
         }
 
         const idBook = this.order.id
+        console.log(idBook);
+        
 
         this.stock = this.stock - 1
 
@@ -54,7 +60,7 @@ export class FormOrderComponent implements OnInit {
             }
             if (orderNew.deliver_date != '') {
                 this.service.postOrderUser(orderNew).subscribe((data) => {
-                  this.service.putBook(idBook, bookOrder).subscribe(res => {
+                this.service.putBook(idBook, bookOrder).subscribe(res => {
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',

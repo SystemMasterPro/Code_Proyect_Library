@@ -2,3 +2,6 @@
     color: black;
     font-weight: bolder;
 }
+mat-form-field {
+  margin-right: 10px;
+}
