@@ -2,7 +2,7 @@
 <div class="container mt-5 mb-2">
     <div class="row text-center">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <img src="../../../../assets/images/icon.png" width="150" alt="">
+            <img src="../../../../assets/images/icon.png" width="100" alt="Poner el logo que gusten">
         </div>
     </div>
 </div>
@@ -13,32 +13,32 @@
                 <div class="card-header color text-black">
                     <div class="row text-center">
                         <div class="col-12">
-                            <h3>DATOS DE LA SOLICITUD</h3>
+                            <h3 class="title">DATOS DE LA SOLICITUD</h3>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="form-label colorTextLabel" for="book">Libro:</label>
-                        <input [disabled]="true" [(ngModel)]="order.title" type="text" class="form-control" id="book" name="book">
+                        <label class="form-label colorTextLabel" for="book">Libro a Solicitar:</label>
+                        <input [disabled]="true" [(ngModel)]="order.title" type="text" class="form-control textFont" id="book" name="book">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label pt-2 colorTextLabel" for="autor">Autor:</label>
-                        <input [disabled]="true" [(ngModel)]="order.author" type="text" class="form-control" id="author"
+                        <label class="form-label pt-2 colorTextLabel" for="autor">Autor del Libro:</label>
+                        <input [disabled]="true" [(ngModel)]="order.author" type="text" class="form-control textFont" id="author"
                             name="autor">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label pt-2 colorTextLabel" for="user">Solicitante:</label>
-                        <input [disabled]="true" value="{{user.names}}" type="text" class="form-control" id="user" name="user">
+                        <input [disabled]="true" value="{{user.names}}" type="text" class="form-control textFont" id="user" name="user">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label pt-2 colorTextLabel" for="correo">Fecha para su devolucion:</label>
                         <!-- <input [(ngModel)]="deliver_date" type="datetime-local" class="form-control" name="date" required> -->
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>Seleccione la fecha</mat-label>
+                        <mat-form-field class="example-full-width spaceBox" appearance="fill">
+                            <mat-label>dd/mm/yyyy</mat-label>
                             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="deliver_date" [ngModelOptions]="{standalone: true}" placeholder="dd/mm/yyyy" required>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -49,11 +49,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <button (click)="saveOrder()" class="btn btn-primary w-100 mt-3">Enviar Solicitud</button>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 buttonSize">
+            <button (click)="saveOrder()" class="btn btn-primary w-50 mt-3">Enviar Solicitud</button>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-            <button (click)="cancelOrder()" class="btn btn-danger w-100 mt-3">Cancelar</button>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 buttonSize2">
+            <button (click)="cancelOrder()" class="btn btn-danger w-50 mt-3">Cancelar</button>
         </div>
     </div>
 </form>

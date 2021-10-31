@@ -71,3 +71,9 @@
 .card-title{
     margin-top: 2px;
 }
+
+.styleCard{
+    box-shadow: 4px 5px 5px 0px rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(255, 255, 255, 0.75);
+}

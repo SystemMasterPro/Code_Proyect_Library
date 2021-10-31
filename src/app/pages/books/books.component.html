@@ -2,8 +2,8 @@
     <app-search (search)="handleSearch($event)"></app-search>
     <div class="row">
         <div *ngFor="let book of datos | searchFilter:filtro" class="col-lg-3 col-md-4 col-sm-6 col-12 p-2">
-            <div class="card animate__animated animate__bounceIn">
-                <img src="{{book.image}}" height="200px" class="card-img-top" alt="...">
+            <div class="card rounded styleCard animate__animated animate__bounceIn">
+                <img src="{{book.image}}" height="300px" class="card-img-top" alt="...">
                 <div class="card-body">
                     <a *ngIf="book.state == true" class="stateBook badge bg-success">Disponible</a>
                     <a *ngIf="book.state == false" class="stateBookTwo badge bg-danger"> No Disponible</a>

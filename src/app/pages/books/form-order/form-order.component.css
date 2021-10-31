@@ -5,3 +5,37 @@
 mat-form-field {
   margin-right: 10px;
 }
+.card{
+  box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
+}
+
+.textFont{
+  color: rgb(72, 181, 80);
+  background-color: black;
+  font-family: 'Times New Roman', Times, serif;
+}
+.buttonSize{
+  text-align: end;
+}
+
+.title{
+  color: black;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.spaceBox{
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+@media (max-width:771px){
+  .buttonSize{
+    text-align: center;
+  }
+  .buttonSize2{
+    text-align: center;
+  }
+}
