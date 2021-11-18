@@ -81,3 +81,18 @@
     height: 300px;
     object-fit: fill;
 }
+@media(max-width:1100px){
+    .containerCards{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media(max-width:850px){
+    .containerCards{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media(max-width:550px){
+    .containerCards{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
