@@ -1,9 +1,8 @@
-<div class="container spaceFont text-center">
+<div class="container-fluit spaceFont text-center">
     <app-search (search)="handleSearch($event)"></app-search>
-    <div class="row">
-        <div *ngFor="let book of datos | searchFilter:filtro" class="col-lg-3 col-md-4 col-sm-6 col-12 p-2">
-            <div class="card rounded styleCard animate__animated animate__bounceIn">
-                <img src="{{book.image}}" height="300px" class="card-img-top" alt="...">
+    <div class="containerCards">
+            <div *ngFor="let book of datos | searchFilter:filtro" class="card rounded styleCard animate__animated animate__bounceIn">
+                <img loading="lazy" src="{{book.image}}">
                 <div class="card-body">
                     <a *ngIf="book.state == true" class="stateBook badge bg-success">Disponible</a>
                     <a *ngIf="book.state == false" class="stateBookTwo badge bg-danger"> No Disponible</a>
@@ -14,10 +13,9 @@
                         <h5 *ngIf="book.state === true" class="card-subtitle"><span class="colorSpan badge bg-dark text-white">Ejemplares Disponibles: </span> {{book.stock}}</h5>
                     </div>
                 </div>
-                <button *ngIf="book.stock > 0 && book.state === true" [routerLink]="['/new-order/',book.id]" class="btn btn-primary m-2 colorButton">Solicitar</button>
+                <button *ngIf="book.stock > 0 && book.state === true" [routerLink]="['/new-order/',book.id]" class="btn m-2 colorButton">Solicitar</button>
                 <button *ngIf="book.stock === 0 || book.state === false" class="btn btn-danger disabled m-2">Agotado</button>
             </div>
-        </div>
     </div>
 </div>
 

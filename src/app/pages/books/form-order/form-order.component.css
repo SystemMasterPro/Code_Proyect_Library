@@ -5,16 +5,9 @@
 mat-form-field {
   margin-right: 10px;
 }
-.card{
-  box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
-  -webkit-box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
-  -moz-box-shadow: 5px 4px 5px 0px rgba(255, 255, 255, 0.75);
-}
-
 .textFont{
   color: rgb(72, 181, 80);
   background-color: black;
-  font-family: 'Times New Roman', Times, serif;
 }
 .buttonSize{
   text-align: end;
@@ -23,19 +16,46 @@ mat-form-field {
 .title{
   color: black;
   font-weight: bolder;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 .spaceBox{
   margin-top: 10px;
   margin-left: 5px;
 }
-
-@media (max-width:771px){
-  .buttonSize{
-    text-align: center;
+/* Contenedor */
+.container{
+  display: grid;
+  width: 600px;
+}
+.rowButtons{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2,200px);
+  justify-content: center;
+  gap: 10px;
+}
+.rowButtons button{
+  width: 200px;
+  height: 40px;
+}
+@media (max-width:700px){
+  .container{
+    width: 400px;
   }
-  .buttonSize2{
-    text-align: center;
+}
+@media (max-width:500px){
+  .container{
+    width: 350px;
+    margin-top: 40px;
+  }
+  .rowButtons{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .rowButtons button{
+    width: 100%;
+    height: 40px;
+  }
+  .hidden{
+    display: none;
   }
 }

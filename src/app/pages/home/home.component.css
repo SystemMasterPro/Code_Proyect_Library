@@ -1,11 +1,17 @@
-.spaceTopContainer{
-    margin-top: 3.5rem;
-}
-
+/* GENERAL */
 .image{
-    height: 590px;
+    height: 100vh;
 }
-
+.container-fluit{
+    margin-bottom: 60px;
+}
+.container{
+    margin-bottom: 60px;
+}
+hr{
+    display: none;
+}
+/* Biblioteca */
 .title{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
@@ -13,83 +19,138 @@
     -webkit-text-stroke: 2px rgb(63, 110, 58);
     color: white;
     border: 25px solid transparent;
+    text-align: center;
 }
-
-.textColor{
+.containerLibrary{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.containerItems{
+    margin: 20px;
     color: white;
 }
-
-.textColor p{
-    /* text-align: justify; */
-    font-size: 15px;
+.containerItems p{
+    font-size: 16px;
 }
-
-.imageWi{
-    height: 600px;
+.containerItems h1{
+    color: yellowgreen;
+    font-size: 20px;
 }
-
-.borderImage{
-    border: 20px solid transparent;
-    box-shadow: 2px 2px 1px rgb(15, 14, 14);
+.containerImage{
+    margin: 20px;
 }
-
-.textColorText{
-    color: white;
-    /* text-align: justify; */
-    font-size: 15px;
+.containerImage img{
+    width: 90%;
+    border-radius: 20px;
 }
-
-.borderImageTwo{
-    border: 20px solid transparent;
-    box-shadow: 0px 1px 0px 0px rgb(15, 14, 14);
+/* Instituto */
+.containerImageInstituto{
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
-.upper{
+.containerImageInstituto img{
+    width: 50%;
+}
+.containerItems .titleInstituto{
+    font-size: 20px;
+}
+/* Rector */
+.containerRector{
+    display: grid;
+    justify-items: center;
+}
+.containerImage .ImageRector{
+    width: 60%;
+}
+.spaceTitleRector{
+    margin: 0;
+    padding: 0;
+}
+/* ACREDITACION */
+.containerCredits{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+    margin-bottom: 50px;
+}
+.containerCredits .titleCredits{
     text-transform: uppercase;
-}
-.textColorTwo{
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
+    font-size: 30px;
     padding: 10px;
+    margin-bottom: 25px;
+    color: yellowgreen;
+    font-style: italic;
+}
+.containerCredits img{
+    height: 400px;
+    width: 800px;
+    border-radius: 10px;
 }
 
 @media(max-width: 991px){
     .image{
-        height: 400px;
+        height: 500px;
+    }
+    .containerCredits img{
+        height: 300px;
+        width: 600px;
+    }
+    .containerImage{
+        margin: 20px;
+        display: grid;
+        align-items: center;
     }
 }
 
 @media(max-width: 767px){
-    .image{
-        height: 300px;
+    .container-fluit{
+        margin-bottom: 20px;
     }
-    .imageWi{
-    height: 400px;
+    .container{
+        margin-bottom: 10px;
+    }
+    .image{
+        height: 400px;
+    }
+    .containerLibrary{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .containerImageInstituto img{
+        display: none;
+    }
+    .containerItems h1{
+        font-size: 15px;
+    }
+    .containerCredits img{
+        height: 300px;
+        width: 400px;
+    }
+    .containerItems .titleInstituto{
+        font-size: 15px;
+    }
+    .containerCredits .titleCredits{
+        font-size: 15px;
+    }
 }
-}
-
 @media(max-width: 575px){
+    hr{
+        display: block;
+        color: white;
+    }
     .image{
         height: 300px;
     }
-    .spaceTopContainer{
-        margin-top: 3rem;
+    .containerImage img{
+        width: 100%;
     }
-    .textColorTwo{
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 30px;
+    .containerImage .ImageRector{
+        width: 100%;
     }
-    .imageWi{
-        height: 300px;
-    }
-}
-@media(max-width: 300px){
-    .textColorTwo{
-        color: white;
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 20px;
-        padding: 0px;
-
+    .containerCredits img{
+        height: 200px;
+        width: 300px;
     }
 }

@@ -5,6 +5,7 @@
 a{
     text-decoration: none;
     color: white;
+    font-size: 20px;
 }
 
 .mat-toolbar{
@@ -49,6 +50,10 @@ a{
 .centerText{
     justify-content: center;
     height: 40px;
+}
+
+.dropdown-menu{
+    /* text-align: center; */
 }
 
 

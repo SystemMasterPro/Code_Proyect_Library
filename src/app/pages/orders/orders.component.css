@@ -4,6 +4,7 @@
 
 .roundeImage{
     padding: 2rem;
+    border-radius: 50px;
 }
 
 .heightCard{
@@ -13,7 +14,6 @@
 .marginTitle{
     margin-top: 10px;
     color: black;
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bolder;
 }
 
@@ -23,8 +23,7 @@
 }
 
 .sizeText{
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
 
 .borderTarget{
@@ -38,7 +37,6 @@
 
 .listTextTitle{
     color: white;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
 }
 
